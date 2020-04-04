@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>_30_day_challenge</RootNamespace>
+    <RootNamespace>ThirtyDayChallenge</RootNamespace>
   </PropertyGroup>
 
 </Project>
