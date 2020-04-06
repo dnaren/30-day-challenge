@@ -1,12 +1,15 @@
 ﻿using System;
 
-namespace _30_day_challenge
+namespace ThirtyDayChallenge
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      var input = new[] { 7, 6, 4, 3, 1 };
+      var obj = new Challenges.Day5BuyAndSellStock();
+      var sln = obj.MaxProfit(input);
+      Console.WriteLine(sln);
     }
+  }
 }

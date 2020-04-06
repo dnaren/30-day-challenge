@@ -22,4 +22,4 @@ namespace ThirtyDayChallenge.Challenges
       }
     }
   }
-  s
+}
