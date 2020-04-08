@@ -16,16 +16,13 @@ namespace ThirtyDayChallenge
             next = new ListNode(4)
             {
               next = new ListNode(5)
-              {
-                next = new ListNode(6)
-              }
             }
           }
         }
       };
 
-      var obj = new Day8MiddleOfLinkedList();
-      var sln = obj.MiddleNode(input);
+      var obj = new Day8ReverseSingleLinkedList();
+      var sln = obj.Reverse(input);
       Console.WriteLine(sln.val);
     }
   }

@@ -2,12 +2,6 @@ using System.Collections.Generic;
 
 namespace ThirtyDayChallenge.Challenges
 {
-  public class ListNode
-  {
-    public int val;
-    public ListNode next;
-    public ListNode(int x) { val = x; }
-  }
 
   public class Day8MiddleOfLinkedList
   {
