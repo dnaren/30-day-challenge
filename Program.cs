@@ -7,12 +7,14 @@ namespace ThirtyDayChallenge
   {
     static void Main(string[] args)
     {
-      var s = "a##c";
-      var t = "#a#c";
-
-      var obj = new Day9BackspaceStringCompare();
-      var sln = obj.BackspaceCompare(s, t);
-      Console.WriteLine(sln);
+      MinStack minStack = new MinStack();
+      minStack.Push(-2);
+      minStack.Push(0);
+      minStack.Push(-3);
+      Console.WriteLine(minStack.GetMin());
+      minStack.Pop();
+      Console.WriteLine(minStack.Top());
+      Console.WriteLine(minStack.GetMin());
     }
   }
 }
