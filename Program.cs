@@ -7,23 +7,12 @@ namespace ThirtyDayChallenge
   {
     static void Main(string[] args)
     {
-      var input = new ListNode(1)
-      {
-        next = new ListNode(2)
-        {
-          next = new ListNode(3)
-          {
-            next = new ListNode(4)
-            {
-              next = new ListNode(5)
-            }
-          }
-        }
-      };
+      var s = "a##c";
+      var t = "#a#c";
 
-      var obj = new Day8ReverseSingleLinkedList();
-      var sln = obj.Reverse(input);
-      Console.WriteLine(sln.val);
+      var obj = new Day9BackspaceStringCompare();
+      var sln = obj.BackspaceCompare(s, t);
+      Console.WriteLine(sln);
     }
   }
 }
