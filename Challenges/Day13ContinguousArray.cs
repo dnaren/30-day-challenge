@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 namespace ThirtyDayChallenge.Challenges
 {
   public class Day13ContinguousArray
@@ -18,24 +20,26 @@ namespace ThirtyDayChallenge.Challenges
 
     public int FindMaxLength(int[] nums)
     {
+      var zeroSumSubArrays = new Dictionary<int, int>();
+      zeroSumSubArrays.Add(0, -1);
+
       var maxLength = 0;
+      var sum = 0;
 
       for (int i = 0; i < nums.Length; i++)
       {
-        var numOfZeros = 0;
-        var numOfOnes = 0;
+        if (nums[i] == 0)
+          sum--;
+        else
+          sum++;
 
-        for (int j = i; j < nums.Length; j++)
+        if (zeroSumSubArrays.ContainsKey(sum))
         {
-          if (nums[j] == 0)
-            numOfZeros++;
-          else
-            numOfOnes++;
-
-          if (numOfOnes == numOfZeros && (j - i + 1) > maxLength)
-          {
-            maxLength = (j - i + 1);
-          }
+          maxLength = Math.Max(maxLength, i - zeroSumSubArrays[sum]);
+        }
+        else
+        {
+          zeroSumSubArrays.Add(sum, i);
         }
       }
 
