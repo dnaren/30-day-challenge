@@ -7,14 +7,11 @@ namespace ThirtyDayChallenge
   {
     static void Main(string[] args)
     {
-      //int[] input = { };
-      //int[] input = { 1, 0 };
-      //int[] input = { 1, 0, 1 };
-      //int[] input = { 1, 0, 1, 0 };
-      int[] input = { 1, 0, 1, 1, 1, 0, 0 };
-      var obj = new Day13ContinguousArray();
+      var s = "abc";
+      var shift = new int[][] { new[] { 0, 1 }, new[] { 1, 1 } };
+      var obj = new Day14PerformStringShifts();
 
-      Console.WriteLine(obj.FindMaxLength(input));
+      Console.WriteLine(obj.StringShift(s, shift));
     }
   }
 }
