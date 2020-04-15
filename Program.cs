@@ -7,7 +7,7 @@ namespace ThirtyDayChallenge
   {
     static void Main(string[] args)
     {
-      var input = new[] { 1, 2 };
+      var input = new[] { 1 };
       var obj = new Day15ProductOfArrayExceptSelf();
       foreach (var item in obj.ProductExceptSelf(input))
       {
