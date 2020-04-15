@@ -71,5 +71,41 @@ namespace ThirtyDayChallenge.Challenges
       }
       return s;
     }
+
+    private string ShiftOptimal(string s, int[][] shifts)
+    {
+      var finalShift = new int[] { 0, 0 };
+
+      foreach (var shift in shifts)
+      {
+        var shiftBy = shift[1];
+        if (shift[0] == 0)
+        {
+          //left shift
+          if (finalShift[0] == 0)
+          {
+            finalShift[1] += shiftBy;
+          }
+          else
+          {
+            finalShift[1] -= shiftBy;
+          }
+        }
+        else
+        {
+          //right shift
+          if (finalShift[0] == 1)
+          {
+            finalShift[1] += shiftBy;
+          }
+          else
+          {
+            finalShift[1] -= shiftBy;
+          }
+        }
+      }
+
+      return s;
+    }
   }
 }
