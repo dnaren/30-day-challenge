@@ -1,3 +1,4 @@
+using System;
 namespace ThirtyDayChallenge.Challenges
 {
   public class Day14PerformStringShifts
@@ -74,7 +75,7 @@ namespace ThirtyDayChallenge.Challenges
 
     private string ShiftOptimal(string s, int[][] shifts)
     {
-      var finalShift = new int[] { 0, 0 };
+      var finalShift = 0;
 
       foreach (var shift in shifts)
       {
@@ -82,26 +83,38 @@ namespace ThirtyDayChallenge.Challenges
         if (shift[0] == 0)
         {
           //left shift
-          if (finalShift[0] == 0)
-          {
-            finalShift[1] += shiftBy;
-          }
-          else
-          {
-            finalShift[1] -= shiftBy;
-          }
+          finalShift += shiftBy;
         }
         else
         {
           //right shift
-          if (finalShift[0] == 1)
-          {
-            finalShift[1] += shiftBy;
-          }
-          else
-          {
-            finalShift[1] -= shiftBy;
-          }
+          finalShift -= shiftBy;
+        }
+      }
+
+      Console.WriteLine(finalShift);
+
+      if (finalShift > 0)
+      {
+        if (s.Length >= finalShift)
+        //left shift
+        {
+          var left = s.Substring(0, finalShift);
+          var right = s.Substring(finalShift, s.Length - finalShift);
+
+          s = $"{right}{left}";
+        }
+      }
+      else if (finalShift < 0)
+      {
+        finalShift = System.Math.Abs(finalShift);
+        //right shift
+        if (s.Length >= finalShift)
+        {
+          var left = s.Substring(0, s.Length - finalShift);
+          var right = s.Substring(s.Length - finalShift, finalShift);
+
+          s = $"{right}{left}";
         }
       }
 
