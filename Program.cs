@@ -7,12 +7,9 @@ namespace ThirtyDayChallenge
   {
     static void Main(string[] args)
     {
-      var input = new[] { 1 };
-      var obj = new Day15ProductOfArrayExceptSelf();
-      foreach (var item in obj.ProductExceptSelf(input))
-      {
-        Console.WriteLine(item);
-      }
+      var input = "**)))****";
+      var obj = new Day16ValidParenthesisString();
+      Console.WriteLine(obj.CheckValidString(input));
     }
   }
 }
