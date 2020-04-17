@@ -6,25 +6,41 @@ namespace ThirtyDayChallenge.Challenges
     {
       var aArr = A.Split(' ');
       var bArr = B.Split(' ');
-      var length = aArr.Length > bArr.Length ? aArr.Length : bArr.Length;
       var output = new System.Collections.Generic.List<string>();
+      var dictionary = new System.Collections.Generic.Dictionary<string, int>();
 
-      for (int i = 0; i < aArr.Length; i++)
+      foreach (var word in aArr)
       {
-        var found = false;
-        for (int j = 0; j < bArr.Length; j++)
+        if (dictionary.ContainsKey(word))
         {
-          if (aArr[i] == bArr[j])
-          {
-            found = true;
-            break;
-          }
+          dictionary[word] = dictionary[word] + 1;
         }
-        if (found)
-          continue;
-
-        output.Add(aArr[i]);
+        else
+        {
+          dictionary.Add(word, 1);
+        }
       }
+
+      foreach (var word in bArr)
+      {
+        if (dictionary.ContainsKey(word))
+        {
+          dictionary[word] = dictionary[word] + 1;
+        }
+        else
+        {
+          dictionary.Add(word, 1);
+        }
+      }
+
+      foreach (var occurrence in dictionary)
+      {
+        if (occurrence.Value == 1)
+        {
+          output.Add(occurrence.Key);
+        }
+      }
+
       return output.ToArray();
     }
   }
