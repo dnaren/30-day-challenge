@@ -7,13 +7,14 @@ namespace ThirtyDayChallenge
   {
     static void Main(string[] args)
     {
+      char[][] grid = new[] {
+        new char[] { '1', '0', '1', '1', '0' },
+        new char[] { '1', '0', '1', '0', '1' }
+      };
 
-      var obj = new Day16UnCommonWords();
-      var output = obj.UncommonFromSentences("this apple is sweet", "this apple is sour");
-      foreach (var s in output)
-      {
-        Console.WriteLine(s);
-      }
+      var obj = new Day17NumberOfIslands();
+      var output = obj.NumIslands(grid);
+      Console.WriteLine(output);
     }
   }
 }
