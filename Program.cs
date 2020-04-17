@@ -37,7 +37,7 @@ namespace ThirtyDayChallenge
       };
       var l2 = new ListNode(7);
 
-      var obj = new Day17AddTwoNumbersIIApproach2();
+      var obj = new Day17AddTwoNumbers();
       var output = obj.AddTwoNumbers(l1, l2);
       while (output != null)
       {
