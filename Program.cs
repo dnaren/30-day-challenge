@@ -7,14 +7,43 @@ namespace ThirtyDayChallenge
   {
     static void Main(string[] args)
     {
-      char[][] grid = new[] {
-        new char[] { '1', '0', '1', '1', '0' },
-        new char[] { '1', '0', '1', '0', '1' }
+      var l1 = new ListNode(3)
+      {
+        next = new ListNode(9)
+        {
+          next = new ListNode(9)
+          {
+            next = new ListNode(9)
+            {
+              next = new ListNode(9)
+              {
+                next = new ListNode(9)
+                {
+                  next = new ListNode(9)
+                  {
+                    next = new ListNode(9)
+                    {
+                      next = new ListNode(9)
+                      {
+                        next = new ListNode(9)
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       };
+      var l2 = new ListNode(7);
 
-      var obj = new Day17NumberOfIslands();
-      var output = obj.NumIslands(grid);
-      Console.WriteLine(output);
+      var obj = new Day17AddTwoNumbersIIApproach2();
+      var output = obj.AddTwoNumbers(l1, l2);
+      while (output != null)
+      {
+        Console.WriteLine(output.val);
+        output = output.next;
+      }
     }
   }
 }
