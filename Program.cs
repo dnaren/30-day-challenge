@@ -7,43 +7,10 @@ namespace ThirtyDayChallenge
   {
     static void Main(string[] args)
     {
-      var l1 = new ListNode(3)
-      {
-        next = new ListNode(9)
-        {
-          next = new ListNode(9)
-          {
-            next = new ListNode(9)
-            {
-              next = new ListNode(9)
-              {
-                next = new ListNode(9)
-                {
-                  next = new ListNode(9)
-                  {
-                    next = new ListNode(9)
-                    {
-                      next = new ListNode(9)
-                      {
-                        next = new ListNode(9)
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      };
-      var l2 = new ListNode(7);
-
-      var obj = new Day17AddTwoNumbers();
-      var output = obj.AddTwoNumbers(l1, l2);
-      while (output != null)
-      {
-        Console.WriteLine(output.val);
-        output = output.next;
-      }
+      var s = "nnnnnnnn";
+      var obj = new Day17LongestSubString();
+      var output = obj.LengthOfLongestSubstring(s);
+      Console.WriteLine(output);
     }
   }
 }
