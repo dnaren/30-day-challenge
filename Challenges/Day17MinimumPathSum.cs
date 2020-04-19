@@ -1,3 +1,4 @@
+using System;
 namespace ThirtyDayChallenge.Challenges
 {
   public class Day17MinimumPathSum
@@ -26,7 +27,7 @@ namespace ThirtyDayChallenge.Challenges
         return 0;
       }
 
-      return GetSum(grid, 0, 0);
+      return GetSumOptimally(grid);
     }
 
     private int GetSum(int[][] grid, int i, int j)
@@ -58,6 +59,33 @@ namespace ThirtyDayChallenge.Challenges
       }
 
       return grid[i][j] + down;
+    }
+
+    private int GetSumOptimally(int[][] grid)
+    {
+      int[][] sumArray = new int[grid.Length][];
+      for (int i = 0; i < grid.Length; i++)
+      {
+        sumArray[i] = new int[grid[i].Length];
+        for (int j = 0; j < grid[0].Length; j++)
+        {
+          sumArray[i][j] = grid[i][j];
+          if (i > 0 && j > 0)
+          {
+            sumArray[i][j] += Math.Min(sumArray[i - 1][j], sumArray[i][j - 1]);
+          }
+          else if (i > 0)
+          {
+            sumArray[i][j] += sumArray[i - 1][j];
+          }
+          else if (j > 0)
+          {
+            sumArray[i][j] += sumArray[i][j - 1];
+          }
+        }
+      }
+
+      return sumArray[grid.Length - 1][grid[0].Length - 1];
     }
   }
 }
