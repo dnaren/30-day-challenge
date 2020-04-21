@@ -57,6 +57,9 @@ namespace ThirtyDayChallenge.Challenges
       //we are setting the 1 to 0 - so mark it has been visited
       grid[i][j] = '0';
 
+      //we are also visiting every other 1s that are continuous to the initial 1 
+      //and are setting them to 0s (i.e. continuous & visited)
+      //making it 1 island
       FindIslands(grid, i - 1, j);
       FindIslands(grid, i + 1, j);
       FindIslands(grid, i, j - 1);
