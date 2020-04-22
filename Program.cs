@@ -8,13 +8,15 @@ namespace ThirtyDayChallenge
   {
     static void Main(string[] args)
     {
-      var input = new[] { 8, 5, 1, 7, 10, 12 };
+      var input = new[] { 1, 1, 1 };
+      var k = 2;
 
-      var obj = new Day20ConstructBinarySearchTreePreOrderTraversal();
+      var obj = new Day22SubArraySumEqualsK();
       var s = new Stopwatch();
       s.Start();
-      var output = obj.BstFromPreorder(input);
+      var output = obj.SubarraySum(input, k);
       s.Stop();
+      Console.WriteLine($"{output}:{s.ElapsedMilliseconds}");
     }
   }
 }
