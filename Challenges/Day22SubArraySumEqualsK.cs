@@ -23,13 +23,8 @@ namespace ThirtyDayChallenge.Challenges
 
       for (int i = 0; i < nums.Length; i++)
       {
-        var sum = nums[i];
-        if (nums[i] == k)
-        {
-          noOfSubArrays++;
-        }
-
-        for (int j = i + 1; j < nums.Length; j++)
+        var sum = 0;
+        for (int j = i; j < nums.Length; j++)
         {
           sum += nums[j];
           if (sum == k)
