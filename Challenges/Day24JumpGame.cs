@@ -7,7 +7,16 @@ namespace ThirtyDayChallenge.Challenges
       if (nums == null || nums.Length == 0)
         return false;
 
-      return CanJump2(nums, 0);
+      var position = nums.Length - 1;
+      for (int i = nums.Length - 1; i >= 0; i--)
+      {
+        if (i + nums[i] >= position)
+        {
+          position = i;
+        }
+      }
+
+      return position == 0;
     }
 
     private bool CanJump2(int[] nums, int curPosition)
