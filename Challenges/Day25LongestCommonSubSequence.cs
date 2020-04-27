@@ -45,25 +45,32 @@ namespace ThirtyDayChallenge.Challenges
       {
         return 0;
       }
+      var lookup = new Dictionary<string, int>();
 
-      return GetLongestLength(text1, text2, text1.Length, text2.Length);
+      return GetLongestLength(text1, text2, text1.Length, text2.Length, lookup);
     }
 
-    private int GetLongestLength(string x, string y, int m, int n)
+    private static int GetLongestLength(string x, string y, int m, int n, Dictionary<string, int> lookup)
     {
-
       if (m == 0 || n == 0)
-      {
         return 0;
-      }
 
-      if (x[m - 1] == y[n - 1])
+      String key = m + "|" + n;
+
+      if (!lookup.ContainsKey(key))
       {
-        return GetLongestLength(x, y, m - 1, n - 1) + 1;
+        if (x[m - 1] == y[n - 1])
+        {
+          lookup.Add(key, GetLongestLength(x, y, m - 1, n - 1, lookup) + 1);
+        }
+        else
+        {
+          lookup.Add(key, Math.Max(GetLongestLength(x, y, m, n - 1, lookup),
+              GetLongestLength(x, y, m - 1, n, lookup)));
+        }
       }
 
-      return Math.Max(GetLongestLength(x, y, m, n - 1),
-              GetLongestLength(x, y, m - 1, n));
+      return lookup[key];
     }
   }
 }
