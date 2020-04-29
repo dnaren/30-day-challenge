@@ -7,14 +7,18 @@ namespace ThirtyDayChallenge
   {
     static void Main(string[] args)
     {
-      var firstUnique = new FirstUnique(new[] { 2, 3, 5 });
-      Console.WriteLine(firstUnique.ShowFirstUnique());
-      firstUnique.Add(5);
-      Console.WriteLine(firstUnique.ShowFirstUnique());
-      firstUnique.Add(2);
-      Console.WriteLine(firstUnique.ShowFirstUnique());
-      firstUnique.Add(3);
-      Console.WriteLine(firstUnique.ShowFirstUnique());
+      var obj = new Day29BinaryTreeMaxPathSum();
+      var input = new TreeNode(-2);
+      // {
+      //   left = new TreeNode(9),
+      //   right = new TreeNode(20)
+      //   {
+      //     left = new TreeNode(15),
+      //     right = new TreeNode(7)
+      //   }
+      // };
+
+      Console.WriteLine(obj.MaxPathSum(input));
     }
   }
 }
