@@ -1,3 +1,4 @@
+using System;
 namespace ThirtyDayChallenge.Challenges
 {
   public class Day29BinaryTreeMaxPathSum
@@ -34,53 +35,64 @@ namespace ThirtyDayChallenge.Challenges
       if (root == null)
         return 0;
 
-      return GetMaxSum(root, int.MinValue);
+      var result = new Result { Value = int.MinValue };
+      GetMaxSum2(root, result);
+      return result.Value;
     }
 
-    private int GetMaxSum(TreeNode node, int maxSumSoFar)
+    private int GetMaxSum2(TreeNode node, Result result)
     {
-      var leftSum = int.MinValue;
-      var rightSum = int.MinValue;
-      if (node.left != null)
-      {
-        leftSum = GetMaxSum(node.left, maxSumSoFar);
-      }
+      if (node == null)
+        return 0;
 
-      if (node.right != null)
-      {
-        rightSum = GetMaxSum(node.right, maxSumSoFar);
-      }
+      var leftSum = GetMaxSum2(node.left, result);
+      var rightSum = GetMaxSum2(node.right, result);
 
-      var maxNodeSum = int.MinValue;
-      if (leftSum > rightSum)
-      {
-        if (leftSum + node.val > leftSum)
-        {
-          maxNodeSum = node.val + leftSum + rightSum;
-        }
-        else
-        {
-          maxNodeSum = leftSum;
-        }
-      }
-      else
-      {
-        if (rightSum + node.val > rightSum)
-        {
-          maxNodeSum = node.val + leftSum + rightSum;
-        }
-        else
-        {
-          maxNodeSum = rightSum;
-        }
-      }
+      var maxSingle = Math.Max(Math.Max(leftSum, rightSum) + node.val, node.val);
+      var maxTop = Math.Max(maxSingle, leftSum + rightSum + node.val);
+      result.Value = Math.Max(result.Value, maxTop);
 
-      maxNodeSum = maxNodeSum > node.val ? maxNodeSum : node.val;
-
-      if (maxNodeSum > maxSumSoFar)
-        return maxNodeSum;
-
-      return maxSumSoFar;
+      return maxSingle;
     }
+
+    public class Result
+    {
+      public int Value { get; set; }
+    }
+
+    // private int GetMaxSum(TreeNode node)
+    // {
+    //   var nodeSum = node.val;
+    //   var leftSum = int.MinValue;
+    //   var rightSum = int.MinValue;
+
+    //   if (node.left != null)
+    //   {
+    //     leftSum = GetMaxSum(node.left);
+    //     nodeSum += leftSum;
+    //   }
+
+    //   if (node.right != null)
+    //   {
+    //     rightSum = GetMaxSum(node.right);
+    //     nodeSum += rightSum;
+    //   }
+
+    //   if (node.left == null && node.right == null)
+    //     return node.val;
+
+    //   if (nodeSum > leftSum && nodeSum > rightSum)
+    //   {
+    //     if (nodeSum > node.val)
+    //       return nodeSum;
+
+    //     return node.val;
+    //   }
+
+    //   if (leftSum > rightSum)
+    //     return leftSum;
+    //   else
+    //     return rightSum;
+    // }
   }
 }
